@@ -96,7 +96,7 @@
           >
             <div class="navbar-nav ml-auto py-0">
               <a href="<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link">Home</a>
-              <a href="<?=base_url("about")?>" class="nav-item nav-link">About</a>
+              <a href="<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link">About</a>
               <!-- <a href="service.html" class="nav-item nav-link">Services</a>
               <a href="pricing.html" class="nav-item nav-link">Pricing</a> -->
               <div class="nav-item dropdown">
@@ -104,14 +104,14 @@
                   href="#"
                   class="nav-link dropdown-toggle"
                   data-toggle="dropdown"
-                  >Pages</a
+                  >Profile</a
                 >
                 <div class="dropdown-menu border-0 rounded-0 m-0">
-                  <a href="{{ route('customer.profilecust') }}" class="dropdown-item">My Profile</a>
-                  <a href="{{ route('customer.logout') }}" class="dropdown-item">Logout</a>
+                  <a href="<?= site_url('customer/home/profilecust/' . $customerId) ?>" class="dropdown-item">My Profile</a>
+                  <a href="<?= site_url('/') ?>" class="dropdown-item">Logout</a>
                 </div>
               </div>
-              <a href="{{ route('customer.contact') }}" class="nav-item nav-link active"
+              <a href="<?= site_url('customer/home/contact/' . $customerId) ?>" class="nav-item nav-link active"
                 >Contact</a
               >
             </div>
@@ -134,7 +134,7 @@
             <div class="d-inline-flex align-items-center">
               <a class="btn text-white" href="<?= site_url('customer/home/' . $customerId) ?>">Home</a>
               <i class="fas fa-angle-right text-white"></i>
-              <a class="btn text-white disabled" href="{{ route('customer.contact') }}"
+              <a class="btn text-white disabled" href="<?= site_url('customer/home/contact/' . $customerId) ?>"
                 >Contact Us</a
               >
             </div>
@@ -334,10 +334,10 @@
         <div class="col-lg-3 col-md-6 mb-5">
           <h4 class="text-white mb-4">Quick Links</h4>
           <div class="d-flex flex-column justify-content-start">
-            <a class="text-white mb-2" href="#"
+            <a class="text-white mb-2" href="<?= site_url('customer/home/' . $customerId) ?>"
               ><i class="fa fa-angle-right mr-2"></i>Home</a
             >
-            <a class="text-white mb-2" href="#"
+            <a class="text-white mb-2" href="<?= site_url('customer/home/about/' . $customerId) ?>"
               ><i class="fa fa-angle-right mr-2"></i>About Us</a
             >
             <a class="text-white" href="#"

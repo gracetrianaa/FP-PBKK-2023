@@ -19,8 +19,19 @@ $routes->group('customer', function ($routes){
     $routes->get('home/about/(:num)', 'CustomerController::showAbout/$1', ['as' => 'customer.about']);
     $routes->get('home/orderhistory/(:num)', 'CustomerController::showorderhistory/$1', ['as' => 'customer.orderhistory']);
     $routes->get('home/profilecust/(:num)', 'CustomerController::showprofilecust/$1', ['as' => 'customer.profilecust']);
-    $routes->get('home/logoutcut/(:num)', 'CustomerController::showlogoutcust/$1', ['as' => 'customer.logout']);
+    // $routes->get('home/logoutcut/(:num)', 'CustomerController::showlogin/$1', ['as' => 'customer.logout']);
     $routes->get('home/contact/(:num)', 'CustomerController::showcontact/$1', ['as' => 'customer.contact']);
+
+    // Transaction
+    $routes->get('transaction/orderform/(:num)', 'TransactionController::showorderform/$1', ['as' => 'transaction.showorderform']);
+    $routes->post('transaction/orderform/(:num)', 'TransactionController::processorderform/$1', ['as' => 'transaction.processorderform']);
+    
+    // Payment
+    $routes->get('payment/information/total/(:num)', 'PaymentController::showPaymentTotal/$1', ['as' => 'payment.paymenttotal']);
+    $routes->get('payment/information/(:num)', 'PaymentController::showpaymentform/$1', ['as' => 'payment.forminfo']);
+    $routes->post('payment/information/(:num)', 'PaymentController::processPaymentForm/$1', ['as' => 'payment.processpaymentform']);
+    
+    $routes->get('expense/update-timestamps', 'TransactionController::updateTimestamps');
 });
 
 $routes->group('admin', function ($routes) {
@@ -57,16 +68,5 @@ $routes->group('admin', function ($routes) {
     
     // Register employee
     $routes->get('register/(:num)', 'EmployeeController::showregisteradmin/$1', ['as' => 'admin.showregister']);
-    $routes->post('register/(:num)', 'EmployeeController::store/$1', ['as' => 'admin.store']);
-    
-    // Transaction
-    $routes->get('transaction/(:num)/orderform', 'TransactionController::showorderform/$1', ['as' => 'transaction.showorderform']);
-    $routes->post('transaction/(:num)/orderform', 'TransactionController::processorderform/$1', ['as' => 'transaction.processorderform']);
-    
-    // Payment
-    $routes->get('payment/(:num)/information/total', 'PaymentController::showPaymentTotal/$1', ['as' => 'payment.paymenttotal']);
-    $routes->get('payment/(:num)/information', 'PaymentController::showpaymentform/$1', ['as' => 'payment.forminfo']);
-    $routes->post('payment/(:num)/information', 'PaymentController::processPaymentForm/$1', ['as' => 'payment.processpaymentform']);
-    
-    $routes->get('expense/update-timestamps', 'TransactionController::updateTimestamps');
+    $routes->post('register/(:num)', 'EmployeeController::store/$1', ['as' => 'admin.store']);    
 });
