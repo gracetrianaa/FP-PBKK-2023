@@ -12,7 +12,7 @@ class CustomerController extends BaseController
 {
     public function showHome($customerId)
     {
-        return view('homecust', ['customerId' => $customerId]);
+        return view('home', ['customerId' => $customerId]);
     }
 
     public function showAbout($customerId)
@@ -86,12 +86,12 @@ class CustomerController extends BaseController
 
         $customerModel->insert($data);
 
-        return redirect()->route('customer.showlogin');
+        return redirect()->to('/');
     }
 
 
     public function showlogin(){
-        return view('logincust');
+        return view('login');
     }
 
     public function login() {
@@ -107,7 +107,7 @@ class CustomerController extends BaseController
         
         if ($customer && $customer['cst_password'] === $password) {
             // Perform login for customer
-            return redirect()->to(route_to('customer.home', $customer['cst_id']));
+            return redirect()->to('customer/home/' . $customer['cst_id']);
         } elseif ($employee && $employee['epl_password'] === $password) {
             // Perform login for employee
             return redirect()->to(route_to('admin.dashboard', $employee['epl_id']));

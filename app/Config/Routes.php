@@ -15,8 +15,8 @@ $routes->group('customer', function ($routes){
     $routes->get('register', 'CustomerController::show');
     $routes->post('register', 'CustomerController::store', ['as' => 'customer.store']);
 
-    $routes->get('home/(:num)', 'CustomerController::showhome/$1', ['as' => 'customer.home']);
-    $routes->get('home/about/(:num)', 'CustomerController::showabout/$1', ['as' => 'customer.about']);
+    $routes->get('home/(:num)', 'CustomerController::showHome/$1', ['as' => 'customer.home']);
+    $routes->get('home/about/(:num)', 'CustomerController::showAbout/$1', ['as' => 'customer.about']);
     $routes->get('home/orderhistory/(:num)', 'CustomerController::showorderhistory/$1', ['as' => 'customer.orderhistory']);
     $routes->get('home/profilecust/(:num)', 'CustomerController::showprofilecust/$1', ['as' => 'customer.profilecust']);
     $routes->get('home/logoutcut/(:num)', 'CustomerController::showlogoutcust/$1', ['as' => 'customer.logout']);
@@ -70,5 +70,3 @@ $routes->group('admin', function ($routes) {
     
     $routes->get('expense/update-timestamps', 'TransactionController::updateTimestamps');
 });
-
-
