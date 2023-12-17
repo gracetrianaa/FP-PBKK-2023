@@ -9,8 +9,7 @@
     <title>Payment Form</title>
   </head>
   <body>
-    <form action="{{ route('payment.processpaymentform', ['customerId' => $customerId]) }}" method="POST" class="form">
-      @csrf
+    <form action="<?= route_to('payment.processpaymentform', $customerId) ?>" method="POST" class="form">
       <h1 class="text-center">Payment Form</h1>
       <!-- Progress bar -->
       <div class="progressbar">
@@ -34,7 +33,7 @@
           <span class="warning-text">Please remember to save your payment receipt.</span>
         </div>        
         <div class="btns-group">
-          <a href="{{ route('payment.paymenttotal', ['customerId' => $customerId]) }}" class="btn btn-prev">Previous</a>
+          <a href="<?= route_to('payment.paymenttotal', $customerId) ?>" class="btn btn-prev">Previous</a>
           <input type="submit" value="Submit" class="btn" />
         </div>
       </div>

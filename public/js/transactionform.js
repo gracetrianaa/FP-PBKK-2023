@@ -3,7 +3,6 @@ const nextBtns = document.querySelectorAll(".btn-next");
 const progress = document.getElementById("progress");
 const formSteps = document.querySelectorAll(".form-step");
 const progressSteps = document.querySelectorAll(".progress-step");
-const addMoreBtn = document.querySelector(".Addmore");
 
 let formStepsNum = 0;
 

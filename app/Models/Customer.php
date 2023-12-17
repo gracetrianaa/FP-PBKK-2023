@@ -45,4 +45,9 @@ class Customer extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'customer_cst_id', 'cst_id');
+    }
 }

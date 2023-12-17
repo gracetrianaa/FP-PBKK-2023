@@ -27,13 +27,19 @@ class CustomerController extends BaseController
 
     public function showOrderHistory($customerId)
     {
-        $customer = (new Customer())->find($customerId);
-        $transactions = (new Transaction())
-            ->whereHas('customer', function ($query) use ($customer) {
-                $query->where('customer_cst_id', $customer->cst_id);
-            })
-            ->get();
+        $customerModel = new Customer();
+        $customer = $customerModel->find($customerId);
 
+        if (!$customer) {
+            // Handle the case where the customer is not found
+            return redirect()->back()->with('error', 'Customer not found');
+        }
+
+        $transactionModel = new Transaction();
+        $transactions = $transactionModel
+            ->where('customer_cst_id', $customerId)
+            ->findAll();
+        
         return view('custorderhistory', ['customerId' => $customerId, 'transactions' => $transactions]);
     }
 
