@@ -58,9 +58,9 @@
             id="navbarCollapse"
           >
             <div class="navbar-nav ml-auto py-0">
-              <a href="{{ route('customer.home', ['customerId' => $customerId]) }}" class="nav-item nav-link">Kembali</a>
-              <a href="{{ route('transaction.showorderform', ['customerId' => $customerId]) }}" class="nav-item nav-link">Pemesanan Laundry</a>
-              <a href="{{ route('customer.orderhistory', ['customerId' => $customerId]) }}" class="nav-item nav-link active">Pesanan Saya</a>
+              <a href="<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link">Kembali</a>
+              <a href="<?= site_url('customer/transaction/orderform/' . $customerId) ?>" class="nav-item nav-link">Pemesanan Laundry</a>
+              <a href="#" class="nav-item nav-link active">Pesanan Saya</a>
             </div>
           </div>
         </nav>
@@ -78,11 +78,11 @@
         </div>
         <div class="col-md-6 text-center text-md-right">
           <div class="d-inline-flex align-items-center">
-            <a class="btn text-white" href="{{ route('customer.home', ['customerId' => $customerId]) }}">Kembali</a>
+            <a class="btn text-white" href="<?= site_url('customer/home/' . $customerId) ?>">Kembali</a>
             <i class="fas fa-angle-right text-white"></i>
-            <a class="btn text-white" href="{{ route('transaction.showorderform', ['customerId' => $customerId]) }}">Pemesanan Laundry</a>
+            <a class="btn text-white" href="<?= site_url('customer/transaction/orderform/' . $customerId) ?>">Pemesanan Laundry</a>
             <i class="fas fa-angle-right text-white"></i>
-            <a class="btn text-white disabled" href="{{ route('customer.orderhistory', ['customerId' => $customerId]) }}">Pesanan Saya</a>
+            <a class="btn text-white disabled" href="#">Pesanan Saya</a>
           </div>
         </div>
       </div>
@@ -114,21 +114,21 @@
                     </tr>
                   </thead>
                   <tbody class="table-body">
-                    @foreach ($transactions as $transaction)
+                    <?php foreach ($transactions as $transaction): ?>
                     <tr class="cell-1">
                       <td class="text-center">
                         <div class="toggle-btn">
                           <div class="inner-circle"></div>
                         </div>
                       </td>
-                      <td>{{ $transaction->tsc_id }}</td>
-                      <td>{{ $transaction->tsc_status }}</td>
-                      <td>{{ $transaction->tsc_tglmasuk }}</td>
-                      <td>{{ $transaction->tsc_tglselesai }}</td>
-                      <td>{{ $transaction->tsc_totalprice }}</td>
-                      <td>{{ $transaction->created_at }}</td>
+                      <td><?= $transaction['tsc_id'] ?></td>
+                      <td><?= $transaction['tsc_status'] ?></td>
+                      <td><?= $transaction['tsc_tglmasuk'] ?></td>
+                      <td><?= $transaction['tsc_tglselesai'] ?></td>
+                      <td><?= $transaction['tsc_totalprice'] ?></td>
+                      <td><?= $transaction['created_at'] ?></td>
                     </tr>
-                    @endforeach
+                    <?php endforeach ?>
                   </tbody>
                 </table>
               </div>

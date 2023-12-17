@@ -23,7 +23,7 @@ $routes->group('customer', function ($routes){
 
     // Transaction
     $routes->get('transaction/orderform/(:num)', 'TransactionController::showorderform/$1', ['as' => 'transaction.showorderform']);
-    $routes->post('transaction/orderform/(:num)', 'TransactionController::processorderform/$1', ['as' => 'transaction.processorderform']);
+    $routes->post('transaction/orderform/(:num)', 'TransactionController::processOrderForm/$1', ['as' => 'transaction.processorderform']);
     
     // Payment
     $routes->get('payment/information/total/(:num)', 'PaymentController::showPaymentTotal/$1', ['as' => 'payment.paymenttotal']);

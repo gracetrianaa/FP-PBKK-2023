@@ -18,7 +18,9 @@ class Transaction extends Model
         'tsc_tglselesai',
         'tsc_tglambil',
         'tsc_totalprice',
-        'customer_cst_id'
+        'customer_cst_id',
+        'created_at',
+        'updated_at'
     ];
 
     // Dates
@@ -44,4 +46,10 @@ class Transaction extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_cst_id', 'cst_id');
+    }
+
 }

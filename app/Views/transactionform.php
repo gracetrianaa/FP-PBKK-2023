@@ -12,9 +12,18 @@
         margin-top: 200px;
       }
     </style>
+    <?php
+      $serviceOptions = [];
+      foreach ($services as $svc_id => $svc_name) {
+          $serviceOptions[] = ['id' => $svc_id, 'name' => $svc_name];
+      }
+    ?>
+    <script>
+      const serviceOptions = <?= json_encode($serviceOptions) ?>;
+    </script>
   </head>
   <body>
-    <form action="{{ route('transaction.processorderform', ['customerId' => $customerId]) }}" method="POST" class="form">
+    <form action="<?= route_to('transaction.processorderform', $customerId) ?>" method="POST" class="form">
       <h1 class="text-center">Order Form</h1>
       <!-- Progress bar -->
       <div class="progressbar">
@@ -40,9 +49,9 @@
                 <td>
                   <select name="addmore[0][service]" class="service form-control">
                     <option value="">Select a service</option>
-                    @foreach($services as $svc_id => $svc_name)
-                    <option value="{{ $svc_name }}">{{ $svc_name }}</option>
-                    @endforeach
+                    <?php foreach($services as $svc_id => $svc_name): ?>
+                    <option value="<?= $svc_name ?>"><?= $svc_name ?></option>
+                    <?php endforeach ?>
                   </select>
                 </td>
                 <td>
@@ -76,18 +85,14 @@
       </div>
     </form>
     <script>
-      const serviceOptions = [
-        @foreach($services as $svc_id => $svc_name)
-        { id: "{{ $svc_id }}", name: "{{ $svc_name }}" },
-        @endforeach
-      ];
-
       let i = 0;
       const addMoreBtn = document.querySelector(".Addmore");
       addMoreBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
         i++;
+
+        console.log("Button clicked. Current value of i: " + i);
 
         // create table row
         const tr = document.createElement("tr");
@@ -131,25 +136,25 @@
         table.appendChild(tr);
       });
 
-      const btnNext = document.querySelector(".btn-next");
-      btnNext.addEventListener("click", (e) => {
-        e.preventDefault();
-        const currentStep = document.querySelector(".form-step-active");
-        const nextStep = currentStep.nextElementSibling;
+      // const btnNext = document.querySelector(".btn-next");
+      // btnNext.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   const currentStep = document.querySelector(".form-step-active");
+      //   const nextStep = currentStep.nextElementSibling;
 
-        currentStep.classList.remove("form-step-active");
-        nextStep.classList.add("form-step-active");
-      });
+      //   currentStep.classList.remove("form-step-active");
+      //   nextStep.classList.add("form-step-active");
+      // });
 
-      const btnPrev = document.querySelector(".btn-prev");
-      btnPrev.addEventListener("click", (e) => {
-        e.preventDefault();
-        const currentStep = document.querySelector(".form-step-active");
-        const prevStep = currentStep.previousElementSibling;
+      // const btnPrev = document.querySelector(".btn-prev");
+      // btnPrev.addEventListener("click", (e) => {
+      //   e.preventDefault();
+      //   const currentStep = document.querySelector(".form-step-active");
+      //   const prevStep = currentStep.previousElementSibling;
 
-        currentStep.classList.remove("form-step-active");
-        prevStep.classList.add("form-step-active");
-      });
+      //   currentStep.classList.remove("form-step-active");
+      //   prevStep.classList.add("form-step-active");
+      // });
     </script>
   </body>
 </html>
