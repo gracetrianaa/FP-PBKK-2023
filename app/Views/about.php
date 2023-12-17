@@ -8,7 +8,7 @@
     <meta content="Free HTML Templates" name="description" />
 
     <!-- Favicon -->
-    <link href="<?php echo base_url('img/favicon.ico')?>" rel="icon" />
+    <link href="<?=base_url("favicon.ico")?>" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -24,10 +24,10 @@
     />
 
     <!-- Libraries Stylesheet -->
-    <link href="<?php echo base_url("lib/owlcarousel/assets/owl.carousel.min.css")?>" rel="stylesheet" />
+    <link href="<?=base_url("lib/owlcarousel/assets/owl.carousel.min.css")?>" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?php echo base_url("css/csshome/style.css")?>" rel="stylesheet" />
+    <link href="<?=base_url("css/csshome/style.css")?>" rel="stylesheet" />
   </head>
 
   <body>
@@ -144,7 +144,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5">
-            <img class="img-fluid" src="<?php echo base_url("img/about.jpg")?>" alt="" />
+            <img class="img-fluid" src="<?=base_url("img/about.jpg")?>" alt="" />
           </div>
           <div class="col-lg-7 mt-5 mt-lg-0 pl-lg-5">
             <h6 class="text-secondary text-uppercase font-weight-medium mb-3">
@@ -321,16 +321,16 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="<?php echo base_url("lib/easing/easing.min.js")?>"></script>
-    <script src="<?php echo base_url("lib/waypoints/waypoints.min.js")?>"></script>
-    <script src="<?php echo base_url("lib/counterup/counterup.min.js")?>"></script>
-    <script src="<?php echo base_url("lib/owlcarousel/owl.carousel.min.js")?>"></script>
+    <script src="<?=base_url("lib/easing/easing.min.js")?>"></script>
+    <script src="<?=base_url("lib/waypoints/waypoints.min.js")?>"></script>
+    <script src="<?=base_url("lib/counterup/counterup.min.js")?>"></script>
+    <script src="<?=base_url("lib/owlcarousel/owl.carousel.min.js")?>"></script>
 
     <!-- Contact Javascript File -->
-    <script src="<?php echo base_url("mail/jqBootstrapValidation.min.js")?>"></script>
-    <script src="<?php echo base_url("mail/contact.js")?>"></script>
+    <script src="<?=base_url("mail/jqBootstrapValidation.min.js")?>"></script>
+    <script src="<?=base_url("mail/contact.js")?>"></script>
 
     <!-- Template Javascript -->
-    <script src="<?php echo base_url("js/main.js")?>"></script>
+    <script src="<?=base_url("js/main.js")?>"></script>
   </body>
 </html>

@@ -18,6 +18,4 @@ class TransactionController extends BaseController
         }
         return view('transactionform', ['customerId' => $customerId, 'services' => $formattedServices]);
     }
-
-    
 }

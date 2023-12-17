@@ -10,7 +10,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'CustomerController::showlogin', ['as' => 'customer.showlogin']);
 $routes->post('/', 'CustomerController::login', ['as' => 'customer.login']);
 
-
 $routes->group('customer', function ($routes){
     $routes->get('register', 'CustomerController::show');
     $routes->post('register', 'CustomerController::store', ['as' => 'customer.store']);

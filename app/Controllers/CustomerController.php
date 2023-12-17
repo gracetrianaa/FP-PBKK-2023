@@ -7,7 +7,6 @@ use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\Transaction;
 
-
 class CustomerController extends BaseController
 {
     public function showHome($customerId)
@@ -84,7 +83,6 @@ class CustomerController extends BaseController
         return redirect()->to('/');
     }
 
-
     public function showlogin(){
         return view('login');
     }
@@ -110,6 +108,4 @@ class CustomerController extends BaseController
             return redirect()->back()->with('login_error', 'Invalid username or password.');
         }
     }
-
-
 }

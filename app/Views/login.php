@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
@@ -9,6 +8,7 @@
   </head>
   <body>
     <div class="container">
+      <div>Welcome LaundryDar</div>
       <div class="title">Login</div>
       <div class="content">
         <form action="<?= route_to('customer.login') ?>" method="POST">
@@ -29,6 +29,7 @@
             <input type="submit" value="Login">
           </div>
         </form>
+        <div class="register-link">Belum punya akun? <a href="{{ route('customer.store') }}">Register Sekarang</a></div>
       </div>
     </div>
   </body>

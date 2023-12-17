@@ -8,7 +8,7 @@
     <meta content="Free HTML Templates" name="description" />
 
     <!-- Favicon -->
-    <link href="<?=base_url("img/favicon.ico")?>" rel="icon" />
+    <link href="<?=base_url("favicon.ico")?>" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -31,43 +31,6 @@
   </head>
 
   <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-primary py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
-            <div class="d-inline-flex align-items-center">
-              <a class="text-white pr-3" href="">FAQs</a>
-              <span class="text-white">|</span>
-              <a class="text-white px-3" href="">Help</a>
-              <span class="text-white">|</span>
-              <a class="text-white pl-3" href="">Support</a>
-            </div>
-          </div>
-          <div class="col-md-6 text-center text-lg-right">
-            <div class="d-inline-flex align-items-center">
-              <a class="text-white px-3" href="">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a class="text-white px-3" href="">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a class="text-white px-3" href="">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a class="text-white px-3" href="">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a class="text-white pl-3" href="">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Topbar End -->
-
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
       <div
@@ -79,7 +42,7 @@
         >
           <a href="" class="navbar-brand">
             <h1 class="m-0 text-secondary">
-              <span class="text-primary">DRY</span>ME
+              <span class="text-primary">Laundry</span>Dar
             </h1>
           </a>
           <button
@@ -95,27 +58,87 @@
             id="navbarCollapse"
           >
             <div class="navbar-nav ml-auto py-0">
-              <a href="<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link">Home</a>
-              <a href=""<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link">About</a>
-              <div class="nav-item dropdown">
-                <a
-                  href="#"
-                  class="nav-link dropdown-toggle active"
-                  data-toggle="dropdown"
-                  >Profile</a
-                >
-                <div class="dropdown-menu border-0 rounded-0 m-0">
-                  <a href="<?= site_url('customer/home/profilecust/' . $customerId) ?>" class="dropdown-item">My Profile</a>
-                  <a href="<?= site_url('/') ?>" class="dropdown-item active">Log Out</a>
-                </div>
-              </div>
-              <a href="<?= site_url('customer/home/contact/' . $customerId) ?>" class="nav-item nav-link">Contact</a>
+              <a href="{{ route('customer.home', ['customerId' => $customerId]) }}" class="nav-item nav-link">Kembali</a>
+              <a href="{{ route('transaction.showorderform', ['customerId' => $customerId]) }}" class="nav-item nav-link">Pemesanan Laundry</a>
+              <a href="{{ route('customer.orderhistory', ['customerId' => $customerId]) }}" class="nav-item nav-link active">Pesanan Saya</a>
             </div>
           </div>
         </nav>
       </div>
     </div>
     <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div
+    class="page-header container-fluid bg-secondary pt-2 pt-lg-5 pb-2 mb-5">
+    <div class="container py-5">
+      <div class="row align-items-center py-4">
+        <div class="col-md-6 text-center text-md-left">
+          <h1 class="mb-4 mb-md-0 text-white">Pesanan Saya</h1>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <div class="d-inline-flex align-items-center">
+            <a class="btn text-white" href="{{ route('customer.home', ['customerId' => $customerId]) }}">Kembali</a>
+            <i class="fas fa-angle-right text-white"></i>
+            <a class="btn text-white" href="{{ route('transaction.showorderform', ['customerId' => $customerId]) }}">Pemesanan Laundry</a>
+            <i class="fas fa-angle-right text-white"></i>
+            <a class="btn text-white disabled" href="{{ route('customer.orderhistory', ['customerId' => $customerId]) }}">Pesanan Saya</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Page Header Start -->
+
+    <!-- Pesanan Saya Start -->
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+          <div class="col-md-10">
+            <div class="rounded">
+              <div class="table-responsive table-borderless">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        <div class="toggle-btn">
+                          <div class="inner-circle"></div>
+                        </div>
+                      </th>
+                      <th>Order #</th>
+                      <th>Status</th>
+                      <th>Tgl Masuk</th>
+                      <th>Tgl Selesai</th>
+                      <th>Total</th>
+                      <th>Created</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    @foreach ($transactions as $transaction)
+                    <tr class="cell-1">
+                      <td class="text-center">
+                        <div class="toggle-btn">
+                          <div class="inner-circle"></div>
+                        </div>
+                      </td>
+                      <td>{{ $transaction->tsc_id }}</td>
+                      <td>{{ $transaction->tsc_status }}</td>
+                      <td>{{ $transaction->tsc_tglmasuk }}</td>
+                      <td>{{ $transaction->tsc_tglselesai }}</td>
+                      <td>{{ $transaction->tsc_totalprice }}</td>
+                      <td>{{ $transaction->created_at }}</td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+    <!-- Pesanan saya end -->
 
     <!-- Footer Start -->
     <div
@@ -179,6 +202,12 @@
             <a class="text-white mb-2" href="#"
               ><i class="fa fa-angle-right mr-2"></i>About Us</a
             >
+            <!-- <a class="text-white mb-2" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>Services</a
+            >
+            <a class="text-white mb-2" href="#"
+              ><i class="fa fa-angle-right mr-2"></i>Pricing</a
+            > -->
             <a class="text-white" href="#"
               ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
             >
@@ -224,7 +253,7 @@
         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
         <!-- Designed by
         <a class="text-white font-weight-medium" href="https://htmlcodex.com"
-          >HTML Codex</a
+          >Tim MBD</a
         > -->
       </p>
     </div>
@@ -241,7 +270,7 @@
     <script src="<?=base_url("lib/easing/easing.min.js")?>"></script>
     <script src="<?=base_url("lib/waypoints/waypoints.min.js")?>"></script>
     <script src="<?=base_url("lib/counterup/counterup.min.js")?>"></script>
-    <script src="<?=base_url("lib/owlcarousel/owl.carousel.min.js")?>"></script>
+    <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <!-- Contact Javascript File -->
     <script src="<?=base_url("js/mail/jqBootstrapValidation.min.js")?>"></script>
