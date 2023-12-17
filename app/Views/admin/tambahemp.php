@@ -65,7 +65,7 @@
           </div>
         </div>
         <!-- Spinner End -->
-  
+
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
           <nav class="navbar bg-light navbar-light">
@@ -111,7 +111,7 @@
           </nav>
         </div>
         <!-- Sidebar End -->
-  
+
         <!-- Content Start -->
         <div class="content">
           <!-- Navbar Start -->
@@ -151,9 +151,8 @@
             </div>
           </nav>
           <!-- Navbar End -->
-  
-          <!-- Form Employee Start -->
 
+          <!-- Form Employee Start -->
           <div class="container-fluid">
             <div
               class="row h-100 align-items-center justify-content-center"
@@ -266,7 +265,7 @@
                     />
                     <label for="floatingPassword">Password</label>
                   </div>
-     
+
                   <div class="btns-group">
                     <input type="submit" value="Submit" class="btn center" />
                   </div>
