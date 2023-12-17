@@ -96,8 +96,8 @@
             id="navbarCollapse"
           >
             <div class="navbar-nav ml-auto py-0">
-              <a href="{{ route('customer.home') }}" class="nav-item nav-link active">Home</a>
-              <a href="{{ route('customer.about') }}" class="nav-item nav-link">About</a>
+              <a href="<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link active">Home</a>
+              <a href="<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link">About</a>
               <div class="nav-item dropdown">
                 <a
                   href="#"

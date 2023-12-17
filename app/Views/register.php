@@ -11,8 +11,7 @@
     <div class="container">
       <div class="title">Registration</div>
       <div class="content">
-        <form action="{{ route('customer.store') }}" method="POST">
-          @csrf
+      <form action="<?= route_to('customer.store') ?>" method="POST">
           <div class="user-details">
             <div class="input-box">
               <span class="details">Full Name</span>
@@ -33,9 +32,9 @@
             <div class="input-box">
               <span class="details">Username</span>
               <input type="text" name="cst_uname" placeholder="Enter your username" required>
-              @error('cst_uname')
-                  <span class="text-danger">{{ $message }}</span>
-              @enderror
+              <?php if(session()->has('errors')): ?>
+                  <li><?= esc($error) ?></li>
+              <?php endif; ?>
             </div>
             <div class="input-box">
               <span class="details">Password</span>

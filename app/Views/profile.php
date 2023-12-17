@@ -95,8 +95,8 @@
             id="navbarCollapse"
           >
             <div class="navbar-nav ml-auto py-0">
-              <a href="{{ route('customer.login') }}" class="nav-item nav-link">Home</a>
-              <a href="{{ route('customer.about') }}" class="nav-item nav-link">About</a>
+              <a href=""<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link">Home</a>
+              <a href=""<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link">About</a>
               <div class="nav-item dropdown">
                 <a
                   href="#"
@@ -130,7 +130,7 @@
           </div>
           <div class="col-md-6 text-center text-md-right">
             <div class="d-inline-flex align-items-center">
-              <a class="btn text-white" href="{{ route('customer.home') }}">Home</a>
+              <a class="btn text-white" href="<?= site_url('customer/home/' . $customerId) ?>">Home</a>
               <i class="fas fa-angle-right text-white"></i>
               <a class="btn text-white disabled" href="{{ route('customer.profilecust') }}">Profile</a>
             </div>

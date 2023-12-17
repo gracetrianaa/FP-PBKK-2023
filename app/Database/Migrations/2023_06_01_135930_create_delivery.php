@@ -27,11 +27,11 @@ class CreateDeliveryTable extends Migration
                 'constraint' => 255,
             ],
             'transaction_tsc_id' => [
-                'type' => 'BIGINT',
+                'type' => 'INT',
                 'unsigned' => true,
             ],
             'employee_epl_id' => [
-                'type' => 'BIGINT',
+                'type' => 'INT',
                 'unsigned' => true,
             ],
             'created_at' => [
