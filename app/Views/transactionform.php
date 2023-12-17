@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<?=base_url("css/transactionform_style.css")?>" />
-    <script src="<?=base_url("js/transactionform.js")?>" defer></script>
     <title>Order Form</title>
   </head>
   <body>
@@ -65,5 +64,14 @@
         </div>
       </div>
     </form>
+    
+    <script src="<?=base_url("js/transactionform.js")?>" defer></script>
+    <script>
+      const serviceOptions = [
+        @foreach($services as $svc_id => $svc_name)
+        { id: "{{ $svc_id }}", name: "{{ $svc_name }}" },
+        @endforeach
+      ];
+    </script>
   </body>
 </html>
