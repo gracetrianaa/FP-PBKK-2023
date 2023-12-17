@@ -15,7 +15,6 @@
   </head>
   <body>
     <form action="{{ route('transaction.processorderform', ['customerId' => $customerId]) }}" method="POST" class="form">
-      @csrf
       <h1 class="text-center">Order Form</h1>
       <!-- Progress bar -->
       <div class="progressbar">
