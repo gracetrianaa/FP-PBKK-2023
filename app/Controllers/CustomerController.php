@@ -23,7 +23,7 @@ class CustomerController extends BaseController
     public function showProfileCust($customerId)
     {
         $user = (new Customer())->find($customerId);
-        return view('profilecust', ['customerId' => $customerId, 'user' => $user]);
+        return view('profile', ['customerId' => $customerId, 'user' => $user]);
     }
 
     public function showOrderHistory($customerId)
@@ -36,11 +36,6 @@ class CustomerController extends BaseController
             ->get();
 
         return view('custorderhistory', ['customerId' => $customerId, 'transactions' => $transactions]);
-    }
-
-    public function showLogoutCust($customerId)
-    {
-        return view('logoutcust', ['customerId' => $customerId]);
     }
 
     public function showContact($customerId)

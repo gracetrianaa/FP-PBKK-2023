@@ -95,8 +95,8 @@
             id="navbarCollapse"
           >
             <div class="navbar-nav ml-auto py-0">
-              <a href=""<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link">Home</a>
-              <a href=""<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link">About</a>
+              <a href="<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link">Home</a>
+              <a href="<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link">About</a>
               <div class="nav-item dropdown">
                 <a
                   href="#"
@@ -105,13 +105,13 @@
                   >Profile</a
                 >
                 <div class="dropdown-menu border-0 rounded-0 m-0">
-                  <a href="{{ route('customer.profilecust') }}" class="dropdown-item active"
+                  <a href="<?= site_url('customer/home/profilecust/' . $customerId) ?>" class="dropdown-item active"
                     >My Profile</a
                   >
-                  <a href="{{ route('customer.logout') }}" class="dropdown-item">Log Out</a>
+                  <a href="<?= site_url('/') ?>" class="dropdown-item">Log Out</a>
                 </div>
               </div>
-              <a href="{{ route('customer.contact') }}" class="nav-item nav-link">Contact</a>
+              <a href="<?= site_url('customer/home/contact/' . $customerId) ?>" class="nav-item nav-link">Contact</a>
             </div>
           </div>
         </nav>
@@ -132,7 +132,7 @@
             <div class="d-inline-flex align-items-center">
               <a class="btn text-white" href="<?= site_url('customer/home/' . $customerId) ?>">Home</a>
               <i class="fas fa-angle-right text-white"></i>
-              <a class="btn text-white disabled" href="{{ route('customer.profilecust') }}">Profile</a>
+              <a class="btn text-white disabled" href="{<?= site_url('customer/home/profilecust/' . $customerId) ?>">Profile</a>
             </div>
           </div>
         </div>
@@ -144,23 +144,44 @@
      <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Paus</span><span class="text-black-50">pausbiru@gmail.com</span><span> </span></div>
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><?= $user['cst_name'] ?>
+</span><span class="text-black-50"><?= $user['cst_uname'] ?>
+</span><span> </span></div>
             </div>
             <div class="col-md-5 border-right">
                 <div class="p-3 py-5">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Pengaturan Akun</h4>
+                        <h4 class="text-right">Profile</h4>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="Masukkan Nama" value=""></div>
-                        <div class="col-md-6"><label class="labels">Username</label><input type="text" class="form-control" value="" placeholder="Masukkan Username"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Nomor Telepon / WhatsApp</label><input type="text" class="form-control" placeholder="Masukkan Nomor Telepon / WhatsApp" value=""></div>
-                        <div class="col-md-12"><label class="labels">Alamat</label><input type="text" class="form-control" placeholder="Masukkan Alamat" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Masukan Email" value=""></div>
-                    </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Simpan Profile</button></div>
+                      <div class="col-md-6">
+                          <label class="labels">Name</label>
+                          <input type="text" class="form-control" value="<?= $user['cst_name'] ?>
+" readonly>
+                      </div>
+                      <div class="col-md-6">
+                          <label class="labels">Age</label>
+                          <input type="text" class="form-control" value="<?= $user['cst_age'] ?>
+" readonly>
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-md-12">
+                          <label class="labels">Username</label>
+                          <input type="text" class="form-control" value="<?= $user['cst_uname'] ?>
+" readonly>
+                      </div>
+                      <div class="col-md-12">
+                          <label class="labels">Nomor Telepon / WhatsApp</label>
+                          <input type="text" class="form-control" value="<?= $user['cst_phonenumber'] ?>
+" readonly>
+                      </div>
+                      <div class="col-md-12">
+                          <label class="labels">Alamat</label>
+                          <input type="text" class="form-control" value="<?= $user['cst_address'] ?>
+" readonly>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
@@ -168,6 +189,7 @@
     </div>
     </div>
     <!---Profile End-->
+
 
     <!-- Footer Start -->
     <div

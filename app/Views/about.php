@@ -95,8 +95,8 @@
             id="navbarCollapse"
           >
             <div class="navbar-nav ml-auto py-0">
-              <a href="<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link active">Home</a>
-              <a href="<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link">About</a>
+              <a href="<?= site_url('customer/home/' . $customerId) ?>" class="nav-item nav-link">Home</a>
+              <a href="<?= site_url('customer/home/about/' . $customerId) ?>" class="nav-item nav-link active">About</a>
               <div class="nav-item dropdown">
                 <a
                   href="#"
@@ -106,11 +106,11 @@
                   Profile
                 </a>
                 <div class="dropdown-menu border-0 rounded-0 m-0">
-                  <a href="{{ route('customer.profilecust') }}" class="dropdown-item">My Profile</a>
-                  <a href="{{ route('customer.logout') }}" class="dropdown-item">Log Out</a>
+                  <a href="<?= site_url('customer/home/profilecust/' . $customerId) ?>" class="dropdown-item">My Profile</a>
+                  <a href="<?= site_url('/') ?>" class="dropdown-item">Log Out</a>
                 </div>
               </div>
-              <a href="{{ route('customer.contact') }}" class="nav-item nav-link">Contact</a>
+              <a href="<?= site_url('customer/home/contact/' . $customerId) ?>" class="nav-item nav-link">Contact</a>
             </div>
           </div>
         </nav>

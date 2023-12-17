@@ -102,14 +102,14 @@
                   href="#"
                   class="nav-link dropdown-toggle active"
                   data-toggle="dropdown"
-                  >Pages</a
+                  >Profile</a
                 >
                 <div class="dropdown-menu border-0 rounded-0 m-0">
-                  <a href="{{ route('customer.profilecust') }}" class="dropdown-item">My Profile</a>
-                  <a href="{{ route('customer.logout') }}" class="dropdown-item active">Log Out</a>
+                  <a href="<?= site_url('customer/home/profilecust/' . $customerId) ?>" class="dropdown-item">My Profile</a>
+                  <a href="<?= site_url('/') ?>" class="dropdown-item active">Log Out</a>
                 </div>
               </div>
-              <a href="{{ route('customer.contact') }}" class="nav-item nav-link">Contact</a>
+              <a href="<?= site_url('customer/home/contact/' . $customerId) ?>" class="nav-item nav-link">Contact</a>
             </div>
           </div>
         </nav>

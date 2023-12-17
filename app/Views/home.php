@@ -106,11 +106,11 @@
                   >Profile</a
                 >
                 <div class="dropdown-menu border-0 rounded-0 m-0">
-                  <a href="{{ route('customer.profilecust') }}" class="dropdown-item">My Profile</a>
-                  <a href="{{ route('customer.logout') }}" class="dropdown-item">Logout</a>
+                  <a href="<?= site_url('customer/home/profilecust/' . $customerId) ?>" class="dropdown-item">My Profile</a>
+                  <a href="<?= site_url('/') ?>" class="dropdown-item">Logout</a>
                 </div>
               </div>
-              <a href="{{ route('customer.contact') }}" class="nav-item nav-link">Contact</a>
+              <a href="<?= site_url('customer/home/contact/' . $customerId) ?>" class="nav-item nav-link">Contact</a>
             </div>
           </div>
         </nav>
@@ -135,7 +135,7 @@
                   Layanan Terbaik Laundry
                 </h1>
                 <a
-                  href="pesanlayanan.blade.php"
+                  href="<?= site_url('customer/transaction/orderform/' . $customerId) ?>"
                   class="btn btn-primary py-md-3 px-md-5 mt-2"
                   >Pesan Layanan</a
                 >
@@ -153,7 +153,7 @@
                 </h4>
                 <h1 class="display-3 text-white mb-md-4">Staff Profesional</h1>
                 <a
-                  href="pesanlayanan.html"
+                  href="<?= site_url('customer/transaction/orderform/' . $customerId) ?>"
                   class="btn btn-primary py-md-3 px-md-5 mt-2"
                   >Pesan Layanan</a
                 >
