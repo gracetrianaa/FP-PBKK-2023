@@ -31,7 +31,7 @@ class CreatePaymentTable extends Migration
                 'null' => true,
             ],
             'transaction_tsc_id' => [
-                'type' => 'BIGINT',
+                'type' => 'INT',
                 'unsigned' => true,
             ],
             'created_at' => [

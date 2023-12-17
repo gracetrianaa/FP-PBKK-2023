@@ -26,7 +26,7 @@ class CreateTransactionDetailTable extends Migration
                 'unsigned' => true,
             ],
             'transaction_tsc_id' => [
-                'type' => 'BIGINT',
+                'type' => 'INT',
                 'unsigned' => true,
             ],
             'created_at' => [

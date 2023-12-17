@@ -34,7 +34,7 @@ class CreateTransactionTable extends Migration
                 'constraint' => '10,2',
             ],
             'customer_cst_id' => [
-                'type' => 'BIGINT',
+                'type' => 'INT',
                 'unsigned' => true,
             ],
             'created_at' => [
