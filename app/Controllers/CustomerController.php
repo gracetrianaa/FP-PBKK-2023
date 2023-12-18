@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\Transaction;
+use CodeIgniter\I18n\Time;
 
 class CustomerController extends BaseController
 {
@@ -82,6 +83,8 @@ class CustomerController extends BaseController
             'cst_gender' => $this->request->getPost('gender'),
             'cst_uname' => $this->request->getPost('cst_uname'),
             'cst_password' => $this->request->getPost('cst_password'),
+            'created_at' => Time::now(),
+            'updated_at' => Time::now()
         ];
 
         $customerModel->insert($data);

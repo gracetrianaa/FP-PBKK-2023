@@ -60,7 +60,7 @@
             <input type="submit" value="Register">
           </div>
         </form>
-        <div class="register-link">Sudah memiliki akun? <a href="{{ route('customer.store') }}">Login Sekarang</a></div>
+        <div class="register-link">Sudah memiliki akun? <a href="<?= site_url('/') ?>">Login Sekarang</a></div>
       </div>
     </div>
   </body>
