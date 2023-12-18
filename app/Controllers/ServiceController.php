@@ -6,6 +6,8 @@ use App\Models\Employee;
 use App\Models\Transaction;
 use App\Models\Delivery;
 use App\Models\Service;
+use CodeIgniter\I18n\Time;
+
 
 use App\Controllers\BaseController;
 
@@ -57,6 +59,8 @@ class ServiceController extends BaseController
             $serviceModel->insert([
                 'svc_name' => $requestData['svc_name'],
                 'svc_priceperkilo' => $requestData['svc_priceperkilo'],
+                'created_at' => Time::now(),
+                'updated_at' => Time::now()
             ]);
 
             return redirect()->to('admin/service/' . $employeeId);

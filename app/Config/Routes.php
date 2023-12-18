@@ -18,7 +18,6 @@ $routes->group('customer', function ($routes){
     $routes->get('home/about/(:num)', 'CustomerController::showAbout/$1', ['as' => 'customer.about']);
     $routes->get('home/orderhistory/(:num)', 'CustomerController::showorderhistory/$1', ['as' => 'customer.orderhistory']);
     $routes->get('home/profilecust/(:num)', 'CustomerController::showprofilecust/$1', ['as' => 'customer.profilecust']);
-    // $routes->get('home/logoutcut/(:num)', 'CustomerController::showlogin/$1', ['as' => 'customer.logout']);
     $routes->get('home/contact/(:num)', 'CustomerController::showcontact/$1', ['as' => 'customer.contact']);
 
     // Transaction

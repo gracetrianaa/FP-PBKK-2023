@@ -37,6 +37,8 @@ class PaymentController extends BaseController
             'pm_amount' => $transaction['tsc_totalprice'],
             'pm_discount' => $discount,
             'transaction_tsc_id' => $transaction['tsc_id'],
+            'created_at' => Time::now(),
+            'updated_at' => Time::now()
         ];
 
         $paymentModel->insert($paymentData);

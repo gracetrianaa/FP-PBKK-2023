@@ -29,7 +29,7 @@
             <input type="submit" value="Login">
           </div>
         </form>
-        <div class="register-link">Belum punya akun? <a href="{{ route('customer.store') }}">Register Sekarang</a></div>
+        <div class="register-link">Belum punya akun? <a href="<?= site_url('customer/register') ?>">Register Sekarang</a></div>
       </div>
     </div>
   </body>
