@@ -109,7 +109,7 @@ class CustomerController extends BaseController
             return redirect()->to('customer/home/' . $customer['cst_id']);
         } elseif ($employee && $employee['epl_password'] === $password) {
             // Perform login for employee
-            return redirect()->to(route_to('admin.dashboard', $employee['epl_id']));
+            return redirect()->to('admin/dashboard/' . $employee['epl_id']);
         } else {
             return redirect()->back()->with('login_error', 'Invalid username or password.');
         }
