@@ -138,5 +138,4 @@ class EmployeeController extends BaseController
 
         return view('admin/laporan', $data);
     }
-
 }
